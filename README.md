@@ -11,18 +11,21 @@ So the requirement to run this program is Python itself, you can download it on:
 As for the format I made one myself, you can download it here: https://s.id/Dgyv8
 
 # How to use
-1. Download main.py or convert.py (UI version) file. It is safe.
-2. Open your terminal/command prompt and direct to the main.py directory
-3. Run this command on your terminal, `python main.py [CSV Filename] [Output]`
-4. For UI version, simply run this command `python convert.py`
-5. I assume you already downloaded python.
+1. You can download the executable version from: https://s.id/Dh08o
+2. Extract the folder.
+3. Put the CSV file in same folder as the executable.
+4. Run the program.
+5. Open the file, select the output according to your choosen file, and generate.
+6. The result will be inside folder outputs.
+2. Please report if link is dead.
 
 # Future Development
 - Add more options output
-- make it executable, so users can use it right away.
 
 # ChangeLog
 - Version 1.0:
   - Initial program. Output only as Enemies.json.
 - Version 1.1:
   - Add UI version. Convert.py.
+- Version 1.2:
+  - Executable UI Version
