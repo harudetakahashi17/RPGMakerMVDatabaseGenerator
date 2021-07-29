@@ -11,10 +11,11 @@ So the requirement to run this program is Python itself, you can download it on:
 As for the format I made one myself, you can download it here: https://s.id/Dgyv8
 
 # How to use
-1. Download main.py file. It is safe.
+1. Download main.py or convert.py (UI version) file. It is safe.
 2. Open your terminal/command prompt and direct to the main.py directory
 3. Run this command on your terminal, `python main.py [CSV Filename] [Output]`
-4. I assume you already downloaded python.
+4. For UI version, simply run this command `python convert.py`
+5. I assume you already downloaded python.
 
 # Future Development
 - Add more options output
