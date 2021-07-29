@@ -18,8 +18,10 @@ As for the format I made one myself, you can download it here: https://s.id/Dgyv
 
 # Future Development
 - Add more options output
-- Add user friendly interface and make it executable, so users can use it right away.
+- make it executable, so users can use it right away.
 
 # ChangeLog
 - Version 1.0:
   - Initial program. Output only as Enemies.json.
+- Version 1.1:
+  - Add UI version. Convert.py.
