@@ -1,2 +1,26 @@
 /outputs
 /RPG Maker MV JSON Generator - Enemies.csv
+/dist
+/build
+
+### Executable ###
+*.app
+*.bat
+*.cgi
+*.com
+*.exe
+*.gadget
+*.jar
+*.pif
+*.vb
+*.wsf
+
+*.spec
+*.pyc
+*.pyd
+*.pkg
+*.toc
+*.dll
+*.tcl
+*.enc
+*.msg
