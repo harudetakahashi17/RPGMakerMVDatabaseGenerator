@@ -19,7 +19,7 @@ def LinearRegression(minParam, maxParam):
     # the formula is y = ax + b where (y) is the value of paramter at (x) level
     param = []
     for i in range(99):
-        y = ceil((((i + 1) - 1) * (maxParam - minParam) / (99 - 1)) + minParam)
+        y = ceil((((i + 1) - 1) * (int(maxParam) - int(minParam)) / (99 - 1)) + int(minParam))
         param.append(y)
     
     return param
