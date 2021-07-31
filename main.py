@@ -1,7 +1,19 @@
 
+from math import ceil
 import sys, os, json
 import os.path as Path
 
+
+def LinearRegression(minParam, maxParam):
+    # the minLvl is 1
+    # the maxLvl is 99
+    # the formula is y = ax + b where (y) is the value of paramter at (x) level
+    param = []
+    for i in range(99):
+        y = ceil((((i + 1) - 1) * (int(maxParam) - int(minParam)) / (99 - 1)) + int(minParam))
+        param.append(y)
+    
+    return param
 
 def ErrorCommandPrint(errCode):
     if(errCode == 0):
@@ -145,7 +157,31 @@ def main(argv):
                     elif(output == "Skills"):
                         print('### Not yet developed ###')
                     elif(output == "Classes"):
-                        print('### Not yet developed ###')
+                        for entry in result:
+                            entries = {}
+                            entries['id'] = ids
+                            entries['expParams'] = [30,20,30,30]
+                            entries['traits'] = [{"code":23,"dataId":0,"value":1},
+                                                {"code":22,"dataId":0,"value":0.95},
+                                                {"code":22,"dataId":1,"value":0.05},
+                                                {"code":22,"dataId":2,"value":0.04}]
+                            entries['learnings'] = []
+                            entries['name'] = entry[0]
+                            entries['note'] = ''
+                            
+                            mhp = LinearRegression(entry[1], entry[2])
+                            mmp = LinearRegression(entry[3], entry[4])
+                            atk = LinearRegression(entry[5], entry[6])
+                            defn = LinearRegression(entry[7], entry[8])
+                            mat = LinearRegression(entry[9], entry[10])
+                            mdf = LinearRegression(entry[11], entry[12])
+                            agi = LinearRegression(entry[13], entry[14])
+                            luk = LinearRegression(entry[15], entry[16])
+                            entries['params'] = [mhp, mmp, atk, defn, mat, mdf, agi, luk]
+                            
+                            listEntries.append(entries)
+                            ids += 1
+                            
                     else:
                         ErrorCommandPrint(-1)
                         
