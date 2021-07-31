@@ -2,6 +2,7 @@
 /RPG Maker MV JSON Generator - Enemies.csv
 /dist
 /build
+/__pycache__
 
 ### Executable ###
 *.app
@@ -24,3 +25,4 @@
 *.tcl
 *.enc
 *.msg
+*.csv

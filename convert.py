@@ -1,4 +1,5 @@
 
+from math import ceil
 from tkinter import *
 from tkinter import filedialog
 from tkinter import ttk
@@ -9,9 +10,20 @@ import os.path as Path
 
 # Global variables
 acceptable_output = ['Enemies', 'Actors', 'Classes',
-                     'Armors', 'Weapons', 'Items', 'Skills', 'States', 'Troops']
+                     'Armors', 'Weapons', 'Items', 'Skills', 'States']
 outputDir = './outputs/'
 
+def LinearRegression(minParam, maxParam):
+    # the minLvl is 1
+    # the maxLvl is 99
+    # the formula is y = ax + b where (y) is the value of paramter at (x) level
+    param = []
+    for i in range(99):
+        y = ceil((((i + 1) - 1) * (maxParam - minParam) / (99 - 1)) + minParam)
+        param.append(y)
+    
+    return param
+    
 
 def ErrorCommandPrint(errCode):
     if(errCode == 0):
@@ -91,13 +103,62 @@ def Process():
                     ids += 1
 
             elif(output == "Actors"):
-                print('### Not yet developed ###')
-            elif(output == "Troops"):
-                print('### Not yet developed ###')
+                for entry in result:
+                    entries = {}
+                    entries['id'] = ids
+                    entries['battlerName'] = ''
+                    entries['characterIndex'] = 0
+                    entries['characterName'] = ''
+                    entries['classId'] = 1
+                    entries['equips'] = [0,0,0,0,0]
+                    entries['faceIndex'] = 0
+                    entries['faceName'] = ''
+                    entries['traits'] = []
+                    entries['initialLevel'] = entry[3]
+                    entries['maxLevel'] = entry[4]
+                    entries['name'] = entry[0]
+                    entries['nickname'] = entry[1]
+                    entries['note'] = ''
+                    entries['profile'] = entry[2]
+                    
+                    listEntries.append(entries)
+                    ids += 1
+                    
             elif(output == "Weapons"):
-                print('### Not yet developed ###')
+                for entry in result:
+                    entries = {}
+                    entries['id'] = ids
+                    entries['animationId'] = 0
+                    entries['description'] = entry[1]
+                    entries['etypeId'] = 1
+                    entries['traits'] = [{"code":31,"dataId":1,"value":0},{"code":22,"dataId":0,"value":0}]
+                    entries['iconIndex'] = 0
+                    entries['name'] = entry[0]
+                    entries['note'] = ''
+                    entries['params'] = [entry[3], entry[4], entry[5], entry[6], entry[7], entry[8], entry[9], entry[10]]
+                    entries['price'] = entry[2]
+                    entries['wtypeId'] = 0
+                    
+                    listEntries.append(entries)
+                    ids += 1
+                    
             elif(output == "Armors"):
-                print('### Not yet developed ###')
+                for entry in result:
+                    entries = {}
+                    entries['id'] = ids
+                    entries['atypeId'] = 0
+                    entries['description'] = entry[1]
+                    entries['etypeId'] = entry[3]
+                    entries['traits'] = [{"code":22,"dataId":1,"value":0}]
+                    entries['iconIndex'] = 0
+                    entries['name'] = entry[0]
+                    entries['note'] = ''
+                    entries['params'] = [entry[4], entry[5], entry[6], entry[7], entry[8], entry[9], entry[10], entry[11]]
+                    entries['price'] = entry[3]
+                    
+                    listEntries.append(entries)
+                    ids += 1
+                    
             elif(output == "States"):
                 print('### Not yet developed ###')
             elif(output == "Items"):
@@ -105,7 +166,31 @@ def Process():
             elif(output == "Skills"):
                 print('### Not yet developed ###')
             elif(output == "Classes"):
-                print('### Not yet developed ###')
+                for entry in result:
+                    entries = {}
+                    entries['id'] = ids
+                    entries['expParams'] = [30,20,30,30]
+                    entries['traits'] = [{"code":23,"dataId":0,"value":1},
+                                         {"code":22,"dataId":0,"value":0.95},
+                                         {"code":22,"dataId":1,"value":0.05},
+                                         {"code":22,"dataId":2,"value":0.04}]
+                    entries['learnings'] = []
+                    entries['name'] = entry[0]
+                    entries['note'] = ''
+                    
+                    mhp = LinearRegression(entry[1], entry[2])
+                    mmp = LinearRegression(entry[3], entry[4])
+                    atk = LinearRegression(entry[5], entry[6])
+                    defn = LinearRegression(entry[7], entry[8])
+                    mat = LinearRegression(entry[9], entry[10])
+                    mdf = LinearRegression(entry[11], entry[12])
+                    agi = LinearRegression(entry[13], entry[14])
+                    luk = LinearRegression(entry[15], entry[16])
+                    entries['params'] = [mhp, mmp, atk, defn, mat, mdf, agi, luk]
+                    
+                    listEntries.append(entries)
+                    ids += 1
+                    
             else:
                 ErrorCommandPrint(-1)
 
