@@ -11,7 +11,7 @@ If you are using GUI version no need to download anything else.
 As for the CSV format I made one myself, you can download it from here: https://s.id/Dgyv8
 
 # How to use
-1. You can download the executable version from: https://s.id/Dh08o
+1. You can download the executable version from: https://s.id/Dh08o (Currently on review by google). Alt Link: https://s.id/zgYOq (MEGA)
 2. Extract the folder.
 3. Put the CSV file in same folder as the executable.
 4. Run the program.
